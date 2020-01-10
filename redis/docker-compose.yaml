@@ -1,0 +1,92 @@
+version: '3.4'
+services:
+  node1:
+    image: redis
+    container_name: redis-node1
+    restart: always
+    ports:
+      - 6061:6061
+      - 16061:16061
+    volumes:
+      - ./redis1/data:/data
+      - ./redis1/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
+       
+  node2:
+    image: redis
+    container_name: redis-node2
+    restart: always
+    ports:
+      - 6062:6062
+      - 16062:16062
+    volumes:
+      - ./redis2/data:/data
+      - ./redis2/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
+       
+       
+  node3:
+    image: redis
+    container_name: redis-node3
+    restart: always
+    ports:
+      - 6063:6063
+      - 16063:16063
+    volumes:
+      - ./redis3/data:/data
+      - ./redis3/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
+
+  node4:
+    image: redis
+    container_name: redis-node4
+    restart: always
+    ports:
+      - 6064:6064
+      - 16064:16064
+    volumes:
+      - ./redis4/data:/data
+      - ./redis4/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
+
+  node5:
+    image: redis
+    container_name: redis-node5
+    restart: always
+    ports:
+      - 6065:6065
+      - 16065:16065
+    volumes:
+      - ./redis5/data:/data
+      - ./redis5/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
+
+  node6:
+    image: redis
+    container_name: redis-node6
+    restart: always
+    ports:
+      - 6066:6066
+      - 16066:16066
+    volumes:
+      - ./redis6/data:/data
+      - ./redis6/config/redis.conf:/usr/local/etc/redis/redis.conf
+    command:
+      redis-server /usr/local/etc/redis/redis.conf
+    network_mode: 
+      host
