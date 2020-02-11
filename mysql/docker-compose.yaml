@@ -1,0 +1,44 @@
+version: "3"
+services:
+  mysql-master:
+    container_name: mysql-master
+    image: mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root123"
+    volumes:
+      - ./master/data:/var/lib/mysql:rw
+      - ./master/mysql-files:/var/lib/mysql-files:rw
+      - ./master/log:/var/log/mysql:rw
+      - /etc/localtime:/etc/localtime:ro
+      - ./master/config/my.cnf:/etc/mysql/my.cnf:rw
+    ports:
+      - "3306:3306"
+    restart: always
+    hostname: mysql-master
+    networks:
+      net_mysql:
+        ipv4_address: 172.20.0.2
+  mysql-slave:
+    container_name: mysql-slave
+    image: mysql
+    environment:
+      - "MYSQL_ROOT_PASSWORD=root123"
+    volumes:
+      - ./slave/data:/var/lib/mysql:rw
+      - ./slave/mysql-files:/var/lib/mysql-files:rw
+      - ./slave/log:/var/log/mysql:rw
+      - /etc/localtime:/etc/localtime:ro
+      - ./slave/config/my.cnf:/etc/mysql/my.cnf:rw
+    ports:
+      - "3307:3306"
+    restart: always
+    hostname: mysql-slave
+    links:
+      - mysql-master
+    networks:
+      net_mysql:
+        ipv4_address: 172.20.0.3
+networks:
+   net_mysql:
+    external:
+      name: net_mysql
