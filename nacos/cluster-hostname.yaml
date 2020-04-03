@@ -1,0 +1,64 @@
+version: "3"
+services:
+  nacos1:
+    hostname: nacos1
+    container_name: nacos1
+    image: nacos:latest
+    volumes:
+      - ./cluster-logs/nacos1:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8848:8848"
+      - "9555:9555"
+    env_file:
+      - ./env/nacos-hostname.env
+    restart: always
+    external_links:
+      - mysql-master
+      - mysql-slave
+    networks:
+      net_mysql:
+        ipv4_address: 172.20.0.4
+
+  nacos2:
+    hostname: nacos2
+    image: nacos:latest
+    container_name: nacos2
+    volumes:
+      - ./cluster-logs/nacos2:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8849:8848"
+    env_file:
+      - ./env/nacos-hostname.env
+    restart: always
+    external_links:
+      - mysql-master
+      - mysql-slave
+    networks:
+      net_mysql:
+        ipv4_address: 172.20.0.5
+
+  nacos3:
+    hostname: nacos3
+    image: nacos:latest
+    container_name: nacos3
+    volumes:
+      - ./cluster-logs/nacos3:/home/nacos/logs
+      - ./init.d/custom.properties:/home/nacos/init.d/custom.properties
+    ports:
+      - "8850:8848"
+    env_file:
+      - ./env/nacos-hostname.env
+    restart: always
+    external_links:
+      - mysql-master
+      - mysql-slave
+    networks:
+      net_mysql:
+        ipv4_address: 172.20.0.6
+        
+networks:
+   net_mysql:
+    external:
+      name: net_mysql
