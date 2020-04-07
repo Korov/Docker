@@ -1,37 +1,16 @@
 # Docker
 
-#### 介绍
-常见的Docker安装
+## 介绍
+常见的Docker安装脚本
 
-#### 软件架构
-软件架构说明
+## 环境搭建
 
+使用本项目之前应先安装好Docker和Docker-compse，最好使用最新版本，本项目中的所有脚本都已经经过本人测试可用，测试环境为manjaro，理论上其他Linux发行版本的系统也可以运行，若有问题请提issue，我会尽快解决。
 
-#### 安装教程
+## 使用说明
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+每个文件夹下有一个README.md文档，里面详细介绍了安装的命令和命令说明。同时还保存了启动Docker的必须文件。
 
-#### 使用说明
+## issue
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
-
-#### 参与贡献
-
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
-
-
-#### 码云特技
-
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5.  码云官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+如果你想要其他的Docker镜像运行脚本可以提issue，我会尽快添加。
