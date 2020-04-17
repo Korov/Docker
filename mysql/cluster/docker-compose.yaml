@@ -2,7 +2,7 @@ version: "3"
 services:
   mysql-master:
     container_name: mysql-master
-    image: mysql
+    image: mysql:8.0.21
     environment:
       - "MYSQL_ROOT_PASSWORD=root123"
     volumes:
@@ -20,7 +20,7 @@ services:
         ipv4_address: 172.20.0.2
   mysql-slave:
     container_name: mysql-slave
-    image: mysql
+    image: mysql:8.0.21
     environment:
       - "MYSQL_ROOT_PASSWORD=root123"
     volumes:
